@@ -1,0 +1,3 @@
+import {sqliteTable,text,integer} from 'drizzle-orm/sqlite-core';
+export const applications=sqliteTable('applications',{id:text('id').primaryKey(),name:text('name').notNull(),email:text('email').notNull(),phone:text('phone').notNull(),sector:text('sector').notNull(),location:text('location').notNull(),jobId:text('job_id').notNull(),message:text('message').notNull(),filename:text('filename').notNull(),objectKey:text('object_key').notNull(),createdAt:integer('created_at').notNull(),consentVersion:text('consent_version').notNull()});
+export const limits=sqliteTable('submission_limits',{key:text('key').primaryKey(),count:integer('count').notNull(),expires:integer('expires').notNull()});
