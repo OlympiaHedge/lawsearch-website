@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {Shell} from '@/components/site-shell';
 import {companyPhone, companyPhoneHref, team} from '@/lib/team';
 
@@ -14,8 +13,8 @@ export default function Contact(){return <Shell>
         <a className="text-link team-email" href={`mailto:${person.email}`}>{person.email}</a>
       </div>)}
       <h3>A time that suits you</h3><p>Email us with your preferred times and a few details about what you’d like to discuss. We can arrange a phone or Teams conversation.</p>
-      <Link className="text-link" href="/team">Meet the full team</Link>
-      <h3>Looking for your next role?</h3><p>Send your CV securely with your location and career preferences.</p><Link className="button" style={{marginTop:22}} href="/apply">Register your CV</Link>
+      <a className="text-link" href="/team">Meet the full team</a>
+      <h3>Looking for your next role?</h3><p>Send your CV securely with your location and career preferences.</p><a className="button" style={{marginTop:22}} href="/apply">Register your CV</a>
     </div>
     <aside className="contact-box"><h3>LawSearch Talent Ltd</h3><p>Part of Hampton Hills Group</p><p><a href={companyPhoneHref}>{companyPhone}</a></p><p>101 Victoria Avenue<br/>Bloxwich<br/>WS3 3EJ</p><p className="muted">Recruiting across England and Wales.<br/>Meetings by arrangement.</p></aside>
   </div></section>
