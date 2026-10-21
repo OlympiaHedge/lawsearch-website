@@ -3,7 +3,7 @@ import {JobCard} from '@/components/job-card';
 import {jobs} from '@/lib/jobs';
 import {practiceAreas} from '@/lib/practice-areas';
 import {placements,placementExperience} from '@/lib/placements';
-const featuredIds=['ls-014','ls-001','ls-011'];
+const featuredIds=['ls-019','ls-018','ls-020'];
 const homepagePlacements=placements.filter(p=>['Bindmans','Thomas Legal','Burton Copeland'].includes(p.firm));
 export default function Home(){return <Shell>
  <section className="hero prestige-hero"><div className="hero-copy"><p className="eyebrow gold">LAWSEARCH · UK / US / UAE</p><h1>Prestigious<br/><em>Legal Talent.</em></h1><p className="hero-intro">Securing exceptional opportunities for some of the world’s most respected lawyers across the UK, US and UAE.</p><p className="hero-support">For ambitious law firms. For exceptional legal teams. For the next chapter of your career.</p><div className="actions"><a className="button gold-button" href="/jobs">Explore opportunities <span aria-hidden="true">↗</span></a><a className="button ghost" href="/employers">Hire legal talent</a></div><div className="hero-bottom"><span>Private practice & in-house</span><span>Associate to partner & leadership</span></div></div><aside className="hero-aside"><span className="large-monogram" aria-hidden="true">ls.</span><div className="aside-note"><span className="eyebrow gold">AMBITION, PERSONALLY UNDERSTOOD</span><p>The right introduction.<br/>A lasting impact.</p><a href="/contact">Begin a conversation ↗</a></div></aside></section>
