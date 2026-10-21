@@ -29,3 +29,5 @@
 
 em{color:var(--gold-dark)}.hero em,.page-hero em,.split-cta em,.proof-section em{color:var(--gold)}
 .skip-link{position:absolute;top:-100px;left:20px;z-index:100;background:var(--navy);color:#fff;padding:12px 20px}.skip-link:focus{top:12px}
+
+.salary-estimate-label{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dark);font-weight:600;margin-top:22px!important}.salary-estimate-label+.salary{margin-top:5px!important}.salary-note{font-size:.78rem!important;line-height:1.55!important;color:var(--muted);margin-top:10px!important;margin-bottom:12px}.job-card .salary-note{max-width:42ch}

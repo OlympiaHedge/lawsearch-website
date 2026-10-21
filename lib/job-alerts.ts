@@ -1,6 +1,6 @@
 
 import {env} from 'cloudflare:workers';
-import {jobs} from './jobs';
+import {jobs,salaryEstimateNote} from './jobs';
 import {matches} from './alert-preferences';
 import {retryApplicationNotifications} from './application-notifications';
 const settings=()=>env as unknown as {DB?:D1Database;RESEND_API_KEY?:string;ALERT_FROM_EMAIL?:string;ALERT_AUTOMATION_ENABLED?:string};
@@ -16,7 +16,7 @@ for(const s of results){const old=new Set<string>(JSON.parse(s.baseline));for(co
 
 ${j.title}
 ${j.location}
-${j.salary} per annum
+${j.salaryEstimated?'Estimated base salary: ':''}${j.salary} per annum${j.salaryEstimated?'\n'+salaryEstimateNote:''}
 ${j.work}
 
 ${j.summary}
