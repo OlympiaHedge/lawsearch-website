@@ -16,6 +16,6 @@ export default function Contact(){return <Shell>
       <a className="text-link" href="/team">Meet the full team</a>
       <h3>Looking for your next role?</h3><p>Send your CV securely with your location and career preferences.</p><a className="button" style={{marginTop:22}} href="/apply">Register your CV</a>
     </div>
-    <aside className="contact-box"><h3>LawSearch Talent Ltd</h3><p>Part of Hampton Hills Group</p><p><a href={companyPhoneHref}>{companyPhone}</a></p><p>101 Victoria Avenue<br/>Bloxwich<br/>WS3 3EJ</p><p className="muted">Recruiting across England and Wales.<br/>Meetings by arrangement.</p></aside>
+    <aside className="contact-box"><h3>LawSearch Talent Ltd</h3><p>Part of Hampton Hills Group</p><p><a href={companyPhoneHref}>{companyPhone}</a></p><p>101 Victoria Avenue<br/>Bloxwich<br/>WS3 3EJ</p><p className="muted">Legal search across the UK, US and UAE.<br/>Meetings by arrangement.</p></aside>
   </div></section>
 </Shell>}

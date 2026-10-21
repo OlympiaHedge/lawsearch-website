@@ -8,6 +8,34 @@
       "when": 1790879356197,
       "tag": "0000_aspiring_kinsey_walden",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791130290838,
+      "tag": "0001_special_mystique",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791130342198,
+      "tag": "0002_heavy_ultimates",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1791130804086,
+      "tag": "0003_omniscient_trauma",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1792228605455,
+      "tag": "0004_messy_skrulls",
+      "breakpoints": true
     }
   ]
 }

@@ -1,0 +1,4 @@
+
+import {alertDB,hash} from '@/lib/job-alerts';
+export async function POST(req:Request){try{const url=new URL(req.url);const data=await req.formData();const value=String(url.searchParams.get('token')||data.get('token')||'');if(!/^[a-f0-9-]{72}$/.test(value))return Response.json({error:'Invalid link.'},{status:400});const db=alertDB();
+const result=await db.prepare("UPDATE alert_subscriptions SET status='active',confirmed_at=? WHERE confirm_hash=? AND status='pending' AND created_at>?").bind(Date.now(),await hash(value),Date.now()-48*3600000).run();if(!result.meta.changes)return Response.json({error:'This link has expired or has already been used. You can request an alert again from any job.'},{status:400});return Response.json({message:'Your job alert is enabled. We will email you when a new role matches your preferences.'});}catch{return Response.json({error:'Unable to process this request. Please try again.'},{status:503});}}

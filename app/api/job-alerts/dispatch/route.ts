@@ -1,0 +1,1 @@
+import {isRecruiter} from '@/lib/admin';import {dispatchAlerts} from '@/lib/job-alerts';export async function POST(){if(!await isRecruiter())return new Response('Forbidden',{status:403});return Response.json(await dispatchAlerts());}

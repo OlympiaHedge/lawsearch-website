@@ -1,0 +1,1 @@
+ALTER TABLE `alert_subscriptions` ADD `phone` text DEFAULT '' NOT NULL;

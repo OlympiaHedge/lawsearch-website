@@ -1,28 +1,28 @@
-# Lawsearch
+# Lawsearch — Prestigious Legal Talent
 
-Boutique legal recruitment website for LawSearch Talent Ltd, part of Hampton Hills Group.
+Legal search for law firms and in-house legal teams across the UK, US and UAE. LawSearch Talent Ltd is part of Hampton Hills Group.
 
-## Included
+## Website
 
-- Responsive navy and gold brand, home, specialisms, employers, about and contact pages.
-- Searchable careers page, individual role pages and role-specific application flow.
-- PDF/DOC/DOCX CV uploads (maximum 5 MB), validation, application references and retry protection.
-- D1 application records and private R2 CV storage.
-- Recruiter inbox and CV downloads restricted by the hosted `ADMIN_EMAIL` allowlist and ChatGPT sign-in.
-- Candidate privacy notice and accessible error/success states.
+- Responsive navy, ivory and gold identity, with home, expertise, employer, approach, team and contact pages.
+- Practice-area-first opportunities board with 16 categories, market and organisation filters, keyword search, shareable URLs and vacancy counts.
+- Individual vacancy pages and CV registration that retains the selected practice and market preferences.
+- Verified Placements page with selected 2025–2026 appointments. The 100+ placements statement describes the team’s combined careers in recruitment.
+- PDF/DOC/DOCX CV uploads (5 MB per file), up to three supporting documents and 10 MB total per submission.
+- D1 application records, private R2 uploads and idempotent email delivery to Jacob Fisher with CV/supporting attachments.
+- Authenticated recruiter inbox, restricted downloads, delivery retry controls and opt-in job alerts.
 
-## Development
+## Development and verification
 
-Install dependencies using the existing pnpm lockfile. The repository includes the Sites-compatible Vinext/Cloudflare build configuration. Use `pnpm dev` in a supported local environment and `pnpm build` for production. Type checking: `pnpm exec tsc --noEmit`.
+Use the existing pnpm lockfile and Sites-compatible Vinext/Cloudflare configuration. Run `pnpm dev` for development, `pnpm build` for production and `pnpm exec tsc --noEmit --incremental false` for type checking. Run `node --test tests/applications.mjs tests/job-search.mjs` with Node 24 for the application and job-search checks. Tests use an in-memory database, mock private storage and a mocked email provider; they do not send email.
 
-Runtime bindings: `DB` (D1), `BUCKET` (R2). Generate schema migrations with `pnpm db:generate`. Production migrations are applied by Sites during publication. Configure `ADMIN_EMAIL` as a hosted runtime variable; it must match the authorised recruiter's ChatGPT account email. Never commit secrets.
+Runtime bindings are `DB` (D1) and `BUCKET` (R2). Preserve the existing `.openai/hosting.json` Site identity. Runtime secrets are configured through hosting, never committed. See `docs/application-email-delivery.md` and `docs/job-alerts.md` for delivery configuration. Job-alert automation remains subject to its existing activation settings.
 
-## Vacancy maintenance
+## Content maintenance
 
-Edit `lib/jobs.ts` to add, change or close vacancies. Job IDs are stable references used by application records. Current entries are based on recruitment briefs discussed on 1 October 2026. The five general conveyancing locations share the advertised £45,000–£60,000 range; exact individual role packages need confirmation. Client names and candidate personal details are not published.
+- `lib/practice-areas.ts`: shared practice names, stable URL slugs, descriptions and market labels. Legacy category aliases keep previously loaded application forms compatible.
+- `lib/jobs.ts`: recruitment briefs. Keep existing job IDs stable for saved application history. Set `country` to `UK`, `US` or `UAE` and `setting` to `Private practice` or `In-house`; existing briefs default to UK/private practice. Supply `practiceAreas` to cross-list a mixed role without duplicating it. Keep `sector` as the primary practice for applications. Use only current authorised vacancy details.
+- `lib/placements.ts`: placement summaries and the team career-experience statement. Candidate identities are omitted from public examples.
+- `lib/alert-preferences.ts`: alert preferences and matching, including compatibility with existing subscriptions.
 
-## Launch notes
-
-The initial hosted version is private for review. Review current vacancy availability, individual packages, company details and the candidate privacy/retention arrangements before public sharing. Email enquiries open the visitor's email application. Applications are saved in the recruiter inbox; automatic email notifications are not configured.
-
-The code can be pushed to an authorised GitHub repository once the user's GitHub account is connected. Hosting currently uses the Sites-managed Cloudflare Worker, D1 and R2 configuration; GitHub Pages alone cannot run the CV submission backend.
+Hosting runs on a Sites-managed Cloudflare Worker with D1 and R2; GitHub Pages cannot run the application backend. Keep the GitHub source mirror aligned with the published Site source when making future changes.
